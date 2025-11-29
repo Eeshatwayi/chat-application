@@ -1,18 +1,18 @@
 # Real-Time Chat Application
 
-A full-stack real-time chat application built with the MERN stack (MongoDB, Express.js, React, Node.js) featuring WebSocket communication for instant messaging, chat rooms, and media sharing capabilities.
+A full-stack real-time chat application built with the MERN stack featuring WebSocket communication for instant messaging, chat rooms, and media sharing.
 
-## 🚀 Features
+## Features
 
-- **Real-time Messaging**: Instant message delivery using WebSockets (Socket.io)
-- **Chat Rooms**: Create and join different chat rooms for group conversations
-- **Private Conversations**: One-on-one messaging between users
-- **Media Sharing**: Send images and files in conversations
-- **Message Persistence**: All messages are saved in MongoDB for chat history
-- **User Authentication**: Secure login and registration system
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+- Real-time messaging using Socket.io
+- Create and join chat rooms for group conversations
+- Private one-on-one messaging
+- Send images and files
+- Message persistence with chat history
+- User authentication and authorization
+- Responsive design
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Frontend:**
 - React.js (v18.2.0)
@@ -23,7 +23,7 @@ A full-stack real-time chat application built with the MERN stack (MongoDB, Expr
 
 **Backend:**
 - Node.js (v18.x or higher)
-- Express.js (v4.18.0) 
+- Express.js (v4.18.0)
 - Socket.io (v4.6.0)
 - MongoDB (v6.0 or higher)
 - Mongoose (v8.0.0)
@@ -195,121 +195,62 @@ chat-application/
 └── README.md
 ```
 
-## 🔑 Environment Variables
+## Environment Variables
 
-### Backend (.env)
-| Variable | Description | Example |
-|----------|-------------|---------|
-| PORT | Backend server port | 5000 |
-| MONGODB_URI | MongoDB connection string | mongodb://localhost:27017/chatapp |
-| JWT_SECRET | Secret key for JWT | your_secret_key |
-| NODE_ENV | Environment mode | development |
-| CLIENT_URL | Frontend URL for CORS | http://localhost:3000 |
+Backend .env:
+- PORT - Server port number
+- MONGODB_URI - MongoDB connection string
+- JWT_SECRET - Secret key for JWT tokens
+- NODE_ENV - Environment (development/production)
+- CLIENT_URL - Frontend URL for CORS
 
-### Frontend (.env)
-| Variable | Description | Example |
-|----------|-------------|---------|
-| REACT_APP_API_URL | Backend API URL | http://localhost:5000 |
-| REACT_APP_SOCKET_URL | WebSocket server URL | http://localhost:5000 |
+Frontend .env:
+- REACT_APP_API_URL - Backend API URL
+- REACT_APP_SOCKET_URL - WebSocket server URL
 
-## 📱 Usage
+## Troubleshooting
 
-1. **Register/Login**: Create a new account or login with existing credentials
-2. **Create Room**: Click "New Room" to create a chat room
-3. **Join Room**: Browse and join existing public rooms
-4. **Private Chat**: Start a private conversation with any user
-5. **Send Messages**: Type and send text messages in real-time
-6. **Share Media**: Click the attachment icon to share images/files
-7. **View History**: Scroll up to view previous messages from database
-
-## 🧪 Testing
-
-```bash
-# Backend tests
-cd backend
-npm test
-
-# Frontend tests
-cd frontend
-npm test
-```
-
-## 🐛 Troubleshooting
-
-**MongoDB Connection Error:**
-- Ensure MongoDB service is running
-- Check connection string in `.env` file
+MongoDB Connection Error:
+- Make sure MongoDB service is running
+- Verify connection string in .env file
 - For Atlas, check network access settings
 
-**Socket Connection Failed:**
-- Verify backend server is running
-- Check CORS settings in backend
-- Ensure socket URL matches in frontend `.env`
+Socket Connection Failed:
+- Check if backend server is running
+- Verify CORS settings in backend
+- Ensure socket URL in frontend .env matches backend URL
 
-**Port Already in Use:**
+Port Already in Use:
 ```bash
-# Find and kill process on port 5000
-# Windows:
+# Windows
 netstat -ano | findstr :5000
 taskkill /PID <PID> /F
 
-# macOS/Linux:
+# macOS/Linux
 lsof -ti:5000 | xargs kill -9
 ```
 
-## 🚀 Deployment
+## API Endpoints
 
-### Backend (Render/Railway/Heroku)
-1. Push code to GitHub
-2. Connect repository to hosting service
-3. Add environment variables
-4. Deploy
+Authentication:
+- POST /api/auth/register - Register new user
+- POST /api/auth/login - Login user
+- GET /api/auth/me - Get current user
 
-### Frontend (Vercel/Netlify)
-1. Push code to GitHub
-2. Connect repository
-3. Add build command: `npm run build`
-4. Add environment variables
-5. Deploy
+Messages:
+- GET /api/messages/:roomId - Get room messages
+- POST /api/messages - Send message
+- POST /api/messages/upload - Upload media
 
-### Database (MongoDB Atlas)
-- Already cloud-based, just update connection string
+Rooms:
+- GET /api/rooms - Get all rooms
+- POST /api/rooms - Create room
+- GET /api/rooms/:id - Get room details
 
-## 📄 API Documentation
+## Author
 
-### Authentication Endpoints
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user
+Eesha - https://github.com/Eeshatwayi
 
-### Message Endpoints
-- `GET /api/messages/:roomId` - Get room messages
-- `POST /api/messages` - Send message
-- `POST /api/messages/upload` - Upload media
+## Note
 
-### Room Endpoints
-- `GET /api/rooms` - Get all rooms
-- `POST /api/rooms` - Create room
-- `GET /api/rooms/:id` - Get room details
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📝 License
-
-This project is licensed under the MIT License.
-
-## 👨‍💻 Author
-
-Your Name - [Your GitHub](https://github.com/yourusername)
-
-## 🙏 Acknowledgments
-
-- Real-world inspiration: Slack, WhatsApp, Microsoft Teams
-- Socket.io documentation
-- MERN stack community
-
----
-
-**Note**: This is an educational project created for assignment purposes.
+This project was created as part of an academic assignment to demonstrate real-time communication using the MERN stack and WebSockets.
