@@ -23,7 +23,7 @@ A full-stack real-time chat application built with the MERN stack (MongoDB, Expr
 
 **Backend:**
 - Node.js (v18.x or higher)
-- Express.js (v4.18.0)
+- Express.js (v4.18.0) 
 - Socket.io (v4.6.0)
 - MongoDB (v6.0 or higher)
 - Mongoose (v8.0.0)
